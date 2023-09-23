@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { CustomersComponent } from './MyComponents/customers/customers.component';
+import { VendorsComponent } from './MyComponents/vendors/vendors.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'FoodApp';
+  headerTitle = 'The Food Company';
 }

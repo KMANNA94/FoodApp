@@ -1,0 +1,77 @@
+<div id="customers_block">
+    <div>
+        <h2>Enter New Vendor Info</h2>
+        <form class="example-form">
+            <mat-grid-list cols="4" rowHeight="2:1">
+                <mat-grid-tile>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Vendor Name</mat-label>
+                        <input matInput placeholder="Ex. Ravi" [(ngModel)]="customer_name" name="kuch_bhi" required>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Phone</mat-label>
+                        <input matInput placeholder="Ex. 9876543210" [(ngModel)]="customer_phone" name="kuch_bhi" required>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Email id</mat-label>
+                        <input matInput placeholder="Ex. ravi@gmail.com" [(ngModel)]="customer_email" name="kuch_bhi" required>
+                    </mat-form-field>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Vendor Address</mat-label>
+                        <textarea matInput placeholder="Ex. House No. 123, Abc Township..." [(ngModel)]="customer_address"
+                        name="kuch_bhi" required></textarea>
+                      </mat-form-field>
+                </mat-grid-tile>
+            </mat-grid-list>
+
+            <button mat-raised-button (click)="saveCustomer()">Submit</button>
+        </form>
+
+        <div id="cust_table">
+            <h2>Vendor Details</h2>
+            <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+                <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="user_id">
+                  <th mat-header-cell *matHeaderCellDef> No. </th>
+                  <td mat-cell *matCellDef="let element"> {{element.user_id}} </td>
+                </ng-container>
+              
+                <!-- Name Column -->
+                <ng-container matColumnDef="user_name">
+                  <th mat-header-cell *matHeaderCellDef> Name </th>
+                  <td mat-cell *matCellDef="let element"> {{element.user_name}} </td>
+                </ng-container>
+              
+                <!-- Weight Column -->
+                <ng-container matColumnDef="user_phone">
+                  <th mat-header-cell *matHeaderCellDef> Mobile </th>
+                  <td mat-cell *matCellDef="let element"> {{element.user_phone}} </td>
+                </ng-container>
+              
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="user_email">
+                    <th mat-header-cell *matHeaderCellDef> Email </th>
+                    <td mat-cell *matCellDef="let element"> {{element.user_email}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="user_address">
+                    <th mat-header-cell *matHeaderCellDef> Address </th>
+                    <td mat-cell *matCellDef="let element"> {{element.user_address}} </td>
+                </ng-container>
+              
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </div>
+    </div>
+</div>
